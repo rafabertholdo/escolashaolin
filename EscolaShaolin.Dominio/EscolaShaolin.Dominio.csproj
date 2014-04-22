@@ -40,11 +40,33 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Academia\Entidade\Aluno.cs" />
+    <Compile Include="Academia\Entidade\Exame.cs" />
+    <Compile Include="Academia\Entidade\InscricaoExame.cs" />
+    <Compile Include="Academia\Entidade\Nivel.cs" />
+    <Compile Include="Academia\Entidade\Horario.cs" />
+    <Compile Include="Academia\Entidade\LocalTreinamento.cs" />
     <Compile Include="Academia\Entidade\Modalidade.cs" />
-    <Compile Include="Academia\Entidade\ModalidadeAluno.cs" />
-    <Compile Include="Academia\Entidade\Professor.cs" />
+    <Compile Include="Academia\Entidade\Nota.cs" />
+    <Compile Include="Academia\Entidade\Quesito.cs" />
+    <Compile Include="Estoque\Entidade\ProdutoVenda.cs" />
+    <Compile Include="Estoque\EstoqueServicoDominio.cs" />
+    <Compile Include="Pessoa.cs" />
+    <Compile Include="Academia\Entidade\Plano.cs" />
+    <Compile Include="Academia\Entidade\Presenca.cs" />
+    <Compile Include="Academia\Entidade\Profissional.cs" />
     <Compile Include="Academia\Entidade\Turma.cs" />
+    <Compile Include="Estoque\Entidade\Encomenda.cs" />
+    <Compile Include="Estoque\Entidade\Fornecedor.cs" />
+    <Compile Include="Estoque\Entidade\Movimentacao.cs" />
+    <Compile Include="Estoque\Entidade\Produto.cs" />
+    <Compile Include="Financeiro\Entidade\CentroCustos.cs" />
+    <Compile Include="Financeiro\Entidade\Conta.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Academia\Entidade\Academia.cd" />
+    <None Include="Estoque\Entidade\Estoque.cd" />
+    <None Include="Financeiro\Entidade\Financeiro.cd" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

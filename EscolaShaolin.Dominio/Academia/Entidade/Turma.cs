@@ -7,20 +7,17 @@ using System.Threading.Tasks;
 namespace EscolaShaolin.Dominio.Academia.Entidade
 {
     public class Turma
-    {
-        public int Codigo { get; set; }
+    {   
         public int ModalidadeCodigo { get; set; }
         public Modalidade Modalidade { get; set; }
-        [Flags]
-        public Enum Turno { get; set; }
-        public TimeSpan HorarioInicio { get; set; }
-        public List<DayOfWeek> Dias { get; set; }
-    }
 
-    public enum Turno{
-        Manha = 1,
-        Tarde = 2,
-        Noite = 4,
-        Livre = 8
-    }
+        public int ProfissionalCodigo { get; set; }
+        public Profissional Profissional { get; set; }
+        
+        public int LocalTreinamentoCodigo { get; set; }        
+        public LocalTreinamento LocalTreinamento { get; set; }
+
+        public List<Horario> Horarios { get; set; }
+        public List<Aluno> Alunos { get; set; }
+    }    
 }

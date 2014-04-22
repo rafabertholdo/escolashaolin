@@ -6,10 +6,8 @@ using System.Threading.Tasks;
 
 namespace EscolaShaolin.Dominio.Academia.Entidade
 {
-    public class Aluno
-    {
-        public int Codigo { get; set; }
-        public string Nome { get; set; }
+    public class Aluno : Pessoa
+    {        
         public StatusAlulo Status { get; set; }
         public string StatusOutros {get;set;}
         public Sexo Sexo { get; set; }
@@ -23,24 +21,29 @@ namespace EscolaShaolin.Dominio.Academia.Entidade
             return idade;
         } }
         public string Identidade { get; set; }
-        public string Telefone { get; set; }
-        public string Telefone2 { get; set; }
+        
         public string ContatoEmergencia { get; set; }
         public ComoConheceuEscola ComoConheceuEscola {get;set;}
         public string ComoConheceuEscolaOutros {get;set;}
         public string NomePai { get; set; }
         public string NomeMae { get; set; }
         public string NomeResponsavel { get; set; }
-        public string Email { get; set; }
-        public string Endereco { get; set; }
-        public string Bairro { get; set; }
-        public string Cidade { get; set; }
-        public string UF { get; set; }
-        public string CEP { get; set; }
+        public string Email { get; set; }        
         public DateTime ValidadeCarteira { get; set; }
         public DateTime DataMatricula { get; set; }
         public DateTime DataCancelamento { get; set; }
-    }
+        public Plano Plano { get; set; }
+
+        public string RegistrarPresenca(DayOfWeek Dia)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void PagarMensalidade(Plano plano, DateTime mesAnoReferencia)
+        {
+            throw new NotImplementedException();
+        }     
+    }    
 
     public enum StatusAlulo
     {

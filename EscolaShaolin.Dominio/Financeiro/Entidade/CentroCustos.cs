@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EscolaShaolin.Dominio.Academia.Entidade
+namespace EscolaShaolin.Dominio.Financeiro.Entidade
 {
-    public class Modalidade
+    public class CentroCustos
     {        
-        public string Nome { get; set; }
+        public string Descricao { get; set; }
     }
 }

@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="EscolaShaolin.Dominio.Financeiro.Entidade.CentroCustos">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Financeiro\Entidade\CentroCustos.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EscolaShaolin.Dominio.Financeiro.Entidade.Conta">
+    <Position X="3.25" Y="0.75" Width="2.75" />
+    <Members>
+      <Property Name="CentroCustosCodigo" Hidden="true" />
+      <Property Name="PessoaCodigo" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AIAAAAAAQAABABAAAAAAAAAEAgAAAAAAIAAKQEBAAAQ=</HashCode>
+      <FileName>Financeiro\Entidade\Conta.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="CentroCustos" />
+      <Property Name="Pessoa" />
+      <Property Name="Tipo" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="EscolaShaolin.Dominio.Pessoa">
+    <Position X="7.25" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAAAAAAgQBAAAAAAAAAgACAAAAAAAAAAEAAAAEAEAA=</HashCode>
+      <FileName>Pessoa.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="EscolaShaolin.Dominio.Financeiro.Entidade.TipoConta">
+    <Position X="0.5" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAEAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Financeiro\Entidade\Conta.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

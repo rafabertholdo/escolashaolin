@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace EscolaShaolin.Dominio.Academia.Entidade
 {
-    public class Professor
+    public class Horario
     {
-        public int Codigo { get; set; }
-        public string Nome { get; set; }
-
+        public TimeSpan HorarioInicio { get; set; }
+        public TimeSpan HorarioFim { get; set; }
+        public DayOfWeek Dia { get; set; }
     }
 }

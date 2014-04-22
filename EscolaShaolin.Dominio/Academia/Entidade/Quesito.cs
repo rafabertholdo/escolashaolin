@@ -6,11 +6,8 @@ using System.Threading.Tasks;
 
 namespace EscolaShaolin.Dominio.Academia.Entidade
 {
-    public class ModalidadeAluno
+    public class Quesito
     {
-        public int Codigo { get; set; }
-        public int AlunoCodigo { get; set; }
-        public Aluno Aluno { get; set; }
-        public
+        public string Descricao { get; set; }
     }
 }
