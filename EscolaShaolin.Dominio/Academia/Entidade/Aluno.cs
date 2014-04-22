@@ -34,11 +34,22 @@ namespace EscolaShaolin.Dominio.Academia.Entidade
         public DateTime DataCancelamento { get; set; }
         public Plano Plano { get; set; }
 
-        public string RegistrarPresenca(DayOfWeek Dia)
+        /// <summary>
+        /// Regitra que o aluno esteve presente no local de treinamento
+        /// </summary>
+        /// <param name="Dia"></param>
+        /// <param name="LocalTreinamento"></param>
+        /// <returns></returns>
+        public string RegistrarPresenca(DayOfWeek Dia, LocalTreinamento LocalTreinamento)
         {
             throw new NotImplementedException();
         }
 
+        /// <summary>
+        /// Quita a conta a receber referente ao plano
+        /// </summary>
+        /// <param name="plano"></param>
+        /// <param name="mesAnoReferencia"></param>
         public void PagarMensalidade(Plano plano, DateTime mesAnoReferencia)
         {
             throw new NotImplementedException();

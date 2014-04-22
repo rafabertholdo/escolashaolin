@@ -7,8 +7,7 @@ using System.Threading.Tasks;
 namespace EscolaShaolin.Dominio.Academia.Entidade
 {
     public class Presenca
-    {
-        public Guid Codigo { get; set; }
+    {        
         public DayOfWeek Dia { get; set; }
 
         public Aluno Aluno { get; set; }

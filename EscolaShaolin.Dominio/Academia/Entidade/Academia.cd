@@ -14,11 +14,11 @@
       <FileName>Academia\Entidade\Aluno.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
-      <Property Name="Plano" />
       <Property Name="Status" />
       <Property Name="Sexo" />
       <Property Name="EstadoCivil" />
       <Property Name="ComoConheceuEscola" />
+      <Property Name="Plano" />
     </ShowAsAssociation>
   </Class>
   <Class Name="EscolaShaolin.Dominio.Pessoa">
@@ -61,8 +61,8 @@
     </TypeIdentifier>
     <ShowAsAssociation>
       <Property Name="Aluno" />
-      <Property Name="Nivel" />
       <Property Name="Exame" />
+      <Property Name="Nivel" />
     </ShowAsAssociation>
     <ShowAsCollectionAssociation>
       <Property Name="Notas" />
@@ -97,12 +97,12 @@
       <Property Name="AvaliadorCodigo" Hidden="true" />
     </Members>
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAACAAgAAAAAAAAAAAEAAIAAA=</HashCode>
+      <HashCode>AAAAIAAAAAAAAAAAAAAAACAAgAAAAAAAAAAAAAAIAAA=</HashCode>
       <FileName>Academia\Entidade\Nota.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
-      <Property Name="Avaliador" />
       <Property Name="Quisito" />
+      <Property Name="Avaliador" />
     </ShowAsAssociation>
   </Class>
   <Class Name="EscolaShaolin.Dominio.Academia.Entidade.Profissional">
@@ -177,14 +177,29 @@
       <FileName>Academia\Entidade\Turma.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
-      <Property Name="LocalTreinamento" />
       <Property Name="Modalidade" />
       <Property Name="Profissional" />
+      <Property Name="LocalTreinamento" />
     </ShowAsAssociation>
     <ShowAsCollectionAssociation>
-      <Property Name="Alunos" />
       <Property Name="Horarios" />
+      <Property Name="Alunos" />
     </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="EscolaShaolin.Dominio.Academia.Entidade.Presenca">
+    <Position X="12" Y="10.75" Width="1.5" />
+    <Members>
+      <Property Name="AlunoCodigo" Hidden="true" />
+      <Property Name="LocalTreinamentoCodigo" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAgACAAAAAgAAAAAAAAAAAAAAAAQAAAAAABAAA=</HashCode>
+      <FileName>Academia\Entidade\Presenca.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Aluno" />
+      <Property Name="LocalTreinamento" />
+    </ShowAsAssociation>
   </Class>
   <Enum Name="EscolaShaolin.Dominio.Academia.Entidade.StatusAlulo">
     <Position X="4" Y="9" Width="1.5" />
