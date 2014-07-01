@@ -23,7 +23,9 @@ namespace EscolaShaolin.Dominio.Academia.Entidade
         public string Identidade { get; set; }
         
         public string ContatoEmergencia { get; set; }
-        public ComoConheceuEscola ComoConheceuEscola {get;set;}
+        public ComoConheceuEscola ComoConheceuEscola { get; set; }
+        //O aluno que indica ganha 50% de desconto no proximo mês
+        public Aluno AlunoQueIndicou { get; set; }
         public string ComoConheceuEscolaOutros {get;set;}
         public string NomePai { get; set; }
         public string NomeMae { get; set; }
@@ -81,7 +83,7 @@ namespace EscolaShaolin.Dominio.Academia.Entidade
 
     public enum ComoConheceuEscola
     {
-        Amigo = 1,
+        Indicacao = 1,
         Jornal = 2,
         Internet = 3,
         Outros 

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EscolaShaolin.Framework.Persistence;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace EscolaShaolin.Dominio
 {
-    public class Pessoa
+    public class Pessoa : BaseEntity
     {        
         public string Nome { get; set; }
         public string CnpjCpf { get; set; }

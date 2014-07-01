@@ -4,12 +4,12 @@
     <Position X="6" Y="4" Width="2.5" />
     <InheritanceLine Type="EscolaShaolin.Dominio.Pessoa" FixedToPoint="true">
       <Path>
-        <Point X="7.5" Y="3.142" />
+        <Point X="7.5" Y="3.271" />
         <Point X="7.5" Y="4" />
       </Path>
     </InheritanceLine>
     <TypeIdentifier>
-      <HashCode>AAAAEAAMACAAAAAIgAAEAAAAIAKBAAAAAqEAAkQAgBA=</HashCode>
+      <HashCode>AAAAEAAMACAAAAAIgAAEAAAAIAKBAAAAQqEAAkQAgBA=</HashCode>
       <FileName>Academia\Entidade\Aluno.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -214,7 +214,7 @@
   <Enum Name="EscolaShaolin.Dominio.Academia.Entidade.ComoConheceuEscola">
     <Position X="3" Y="1.5" Width="2" />
     <TypeIdentifier>
-      <HashCode>AAAAAAABAAAAAAAAAAAAAAAACAAAAAgAAAAAAEAAAAA=</HashCode>
+      <HashCode>AAAAAAABAAAAAAAAAAAAAAAACAAAAAgAAAAAAAAACAA=</HashCode>
       <FileName>Academia\Entidade\Aluno.cs</FileName>
     </TypeIdentifier>
   </Enum>

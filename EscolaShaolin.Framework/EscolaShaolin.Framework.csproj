@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{43A8FB63-AD0A-4602-A725-274788E40F1B}</ProjectGuid>
+    <ProjectGuid>{E7BD81BB-8C51-4043-A862-9D8724B56A21}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>EscolaShaolin.Dominio</RootNamespace>
-    <AssemblyName>EscolaShaolin.Dominio</AssemblyName>
+    <RootNamespace>EscolaShaolin.Framework</RootNamespace>
+    <AssemblyName>EscolaShaolin.Framework</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -30,8 +30,25 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity">
+      <HintPath>..\packages\Unity.3.5.1404.0\lib\net45\Microsoft.Practices.Unity.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Configuration">
+      <HintPath>..\packages\Unity.3.5.1404.0\lib\net45\Microsoft.Practices.Unity.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.RegistrationByConvention">
+      <HintPath>..\packages\Unity.3.5.1404.0\lib\net45\Microsoft.Practices.Unity.RegistrationByConvention.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Transactions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -39,40 +56,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Academia\Entidade\Aluno.cs" />
-    <Compile Include="Academia\Entidade\Exame.cs" />
-    <Compile Include="Academia\Entidade\InscricaoExame.cs" />
-    <Compile Include="Academia\Entidade\Nivel.cs" />
-    <Compile Include="Academia\Entidade\Horario.cs" />
-    <Compile Include="Academia\Entidade\LocalTreinamento.cs" />
-    <Compile Include="Academia\Entidade\Modalidade.cs" />
-    <Compile Include="Academia\Entidade\Nota.cs" />
-    <Compile Include="Academia\Entidade\Quesito.cs" />
-    <Compile Include="Estoque\Entidade\ProdutoVenda.cs" />
-    <Compile Include="Estoque\EstoqueServicoDominio.cs" />
-    <Compile Include="Pessoa.cs" />
-    <Compile Include="Academia\Entidade\Plano.cs" />
-    <Compile Include="Academia\Entidade\Presenca.cs" />
-    <Compile Include="Academia\Entidade\Profissional.cs" />
-    <Compile Include="Academia\Entidade\Turma.cs" />
-    <Compile Include="Estoque\Entidade\Encomenda.cs" />
-    <Compile Include="Estoque\Entidade\Fornecedor.cs" />
-    <Compile Include="Estoque\Entidade\Movimentacao.cs" />
-    <Compile Include="Estoque\Entidade\Produto.cs" />
-    <Compile Include="Financeiro\Entidade\CentroCustos.cs" />
-    <Compile Include="Financeiro\Entidade\Conta.cs" />
+    <Compile Include="Persistence\BaseEntity.cs" />
+    <Compile Include="Persistence\BaseService.cs" />
+    <Compile Include="Persistence\EntityFramework\BaseEFContext.cs" />
+    <Compile Include="Persistence\EntityFramework\BaseEFRepository.cs" />
+    <Compile Include="Persistence\EntityFramework\FakeDbSet.cs" />
+    <Compile Include="Persistence\EntityFramework\TestDbAsyncQueryProvider.cs" />
+    <Compile Include="Persistence\IEntity.cs" />
+    <Compile Include="Persistence\IRepository.cs" />
+    <Compile Include="Persistence\IUnityOfWork.cs" />
+    <Compile Include="Persistence\PersistableIntCollection.cs" />
+    <Compile Include="Persistence\PersistableScalarCollection.cs" />
+    <Compile Include="Persistence\PersistableStringCollection.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Academia\Entidade\Academia.cd" />
-    <None Include="Estoque\Entidade\Estoque.cd" />
-    <None Include="Financeiro\Entidade\Financeiro.cd" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\EscolaShaolin.Framework\EscolaShaolin.Framework.csproj">
-      <Project>{e7bd81bb-8c51-4043-a862-9d8724b56a21}</Project>
-      <Name>EscolaShaolin.Framework</Name>
-    </ProjectReference>
+    <None Include="App.config" />
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

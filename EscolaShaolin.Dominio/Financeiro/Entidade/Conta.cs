@@ -50,7 +50,7 @@ namespace EscolaShaolin.Dominio.Financeiro.Entidade
         /// para a data de vencimento especificada
         /// </summary>
         /// <param name="valor"></param>
-        public void ReceberParcelaConta(float valorPago, DateTime DataProximoVencimento )
+        public void ReceberParcelaConta(float valorPago, DateTime DataProximoVencimento)
         {
             throw new NotImplementedException();
         }

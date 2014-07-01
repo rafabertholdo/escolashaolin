@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EscolaShaolin.Framework.Persistence;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace EscolaShaolin.Dominio.Academia.Entidade
 {
-    public class Nota
+    public class Nota : BaseEntity
     {
         public Quesito Quisito { get; set; }
         public float ValorNota { get; set; }

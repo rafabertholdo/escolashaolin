@@ -173,11 +173,13 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\Api\AlunoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\EscolaShaolinContext.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -243,6 +245,16 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\EscolaShaolin.Dominio\EscolaShaolin.Dominio.csproj">
+      <Project>{43a8fb63-ad0a-4602-a725-274788e40f1b}</Project>
+      <Name>EscolaShaolin.Dominio</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EscolaShaolin.Framework\EscolaShaolin.Framework.csproj">
+      <Project>{e7bd81bb-8c51-4043-a862-9d8724b56a21}</Project>
+      <Name>EscolaShaolin.Framework</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
