@@ -8,10 +8,10 @@ namespace EscolaShaolin.Dominio.Academia.Entidade
 {
     public class Aluno : Pessoa
     {        
-        public StatusAlulo Status { get; set; }
+        public StatusAluno Status { get; set; }
         public string StatusOutros {get;set;}
         public Sexo Sexo { get; set; }
-        public EstadoCivil EstadoCivil { get; set; }
+        public EstadoCivil? EstadoCivil { get; set; }
 
         public DateTime DataNascimento { get; set; }
         public int Idade { get{
@@ -23,18 +23,20 @@ namespace EscolaShaolin.Dominio.Academia.Entidade
         public string Identidade { get; set; }
         
         public string ContatoEmergencia { get; set; }
-        public ComoConheceuEscola ComoConheceuEscola { get; set; }
+        public ComoConheceuEscola? ComoConheceuEscola { get; set; }
         //O aluno que indica ganha 50% de desconto no proximo mês
         public Aluno AlunoQueIndicou { get; set; }
+        public Guid? AlunoQueIndicouId { get; set; }
         public string ComoConheceuEscolaOutros {get;set;}
         public string NomePai { get; set; }
         public string NomeMae { get; set; }
         public string NomeResponsavel { get; set; }
         public string Email { get; set; }        
-        public DateTime ValidadeCarteira { get; set; }
-        public DateTime DataMatricula { get; set; }
-        public DateTime DataCancelamento { get; set; }
-        public Plano Plano { get; set; }
+        public DateTime? ValidadeCarteira { get; set; }
+        public DateTime? DataMatricula { get; set; }
+        public DateTime? DataCancelamento { get; set; }
+        public Plano Plano { get; set; }        
+        public Guid? PlanoId { get; set; }
 
         /// <summary>
         /// Regitra que o aluno esteve presente no local de treinamento
@@ -58,7 +60,7 @@ namespace EscolaShaolin.Dominio.Academia.Entidade
         }     
     }    
 
-    public enum StatusAlulo
+    public enum StatusAluno
     {
         Ativo = 1,
         Desistente = 2,

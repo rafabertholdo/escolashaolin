@@ -189,5 +189,12 @@ namespace EscolaShaolin.Framework.Persistence.EntityFramework
               System.Runtime.Serialization.StreamingContext context)
                 : base(info, context) { }
         }
+
+        public async Task<IEnumerable<BaseEntity>> LoadAllAsync(Type entityType)
+        {
+            var set = GetDbSet(entityType);
+            var query = set as IQueryable<BaseEntity>;
+            return await query.ToListAsync();
+        }
     }
 }

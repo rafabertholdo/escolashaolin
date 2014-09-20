@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{E7BD81BB-8C51-4043-A862-9D8724B56A21}</ProjectGuid>
+    <ProjectGuid>{ACB37C1D-E421-43A7-97FB-7C2C5B9AB191}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>EscolaShaolin.Framework</RootNamespace>
-    <AssemblyName>EscolaShaolin.Framework</AssemblyName>
+    <RootNamespace>EscolaShaolin.Infraestrutura</RootNamespace>
+    <AssemblyName>EscolaShaolin.Infraestrutura</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -36,19 +36,9 @@
     <Reference Include="EntityFramework.SqlServer">
       <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.Practices.Unity">
-      <HintPath>..\packages\Unity.3.5.1404.0\lib\net45\Microsoft.Practices.Unity.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.Practices.Unity.Configuration">
-      <HintPath>..\packages\Unity.3.5.1404.0\lib\net45\Microsoft.Practices.Unity.Configuration.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.Practices.Unity.RegistrationByConvention">
-      <HintPath>..\packages\Unity.3.5.1404.0\lib\net45\Microsoft.Practices.Unity.RegistrationByConvention.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Transactions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -56,24 +46,35 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Persistence\BaseEntity.cs" />
-    <Compile Include="Persistence\BaseService.cs" />
-    <Compile Include="Persistence\EntityFramework\BaseEFContext.cs" />
-    <Compile Include="Persistence\EntityFramework\BaseEFRepository.cs" />
-    <Compile Include="Persistence\EntityFramework\DynamicEFRepository.cs" />
-    <Compile Include="Persistence\EntityFramework\FakeDbSet.cs" />
-    <Compile Include="Persistence\EntityFramework\TestDbAsyncQueryProvider.cs" />
-    <Compile Include="Persistence\IEntity.cs" />
-    <Compile Include="Persistence\IRepository.cs" />
-    <Compile Include="Persistence\IUnityOfWork.cs" />
-    <Compile Include="Persistence\PersistableIntCollection.cs" />
-    <Compile Include="Persistence\PersistableScalarCollection.cs" />
-    <Compile Include="Persistence\PersistableStringCollection.cs" />
+    <Compile Include="ContextoEscolaShaolin.cs" />
+    <Compile Include="Migrations\201409201925131_Change01.cs" />
+    <Compile Include="Migrations\201409201925131_Change01.Designer.cs">
+      <DependentUpon>201409201925131_Change01.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\EscolaShaolin.Dominio\EscolaShaolin.Dominio.csproj">
+      <Project>{43a8fb63-ad0a-4602-a725-274788e40f1b}</Project>
+      <Name>EscolaShaolin.Dominio</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EscolaShaolin.Framework\EscolaShaolin.Framework.csproj">
+      <Project>{e7bd81bb-8c51-4043-a862-9d8724b56a21}</Project>
+      <Name>EscolaShaolin.Framework</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Migrations\Intrucoes Migracao.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201409201925131_Change01.resx">
+      <DependentUpon>201409201925131_Change01.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

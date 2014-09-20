@@ -32,11 +32,13 @@ namespace EscolaShaolin.Framework.Persistence.EntityFramework
         [Dependency]
         public IUnityContainer IoCContainer { get; set; }
 
+        public string SchemaName { get; set; }
+
         #region Metodos interface IUnitOfWork
 
         public void Init()
         {
-            this.SetInitializer();
+            this.SetInitializer();            
             this.Configuration.ProxyCreationEnabled = false;
             this.Configuration.LazyLoadingEnabled = false;
             ((IObjectContextAdapter)this).ObjectContext.ObjectMaterialized += ObjectContext_ObjectMaterialized;
@@ -87,6 +89,11 @@ namespace EscolaShaolin.Framework.Persistence.EntityFramework
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            if (this.SchemaName != null)
+            {
+                modelBuilder.HasDefaultSchema(this.SchemaName);
+            }
+
             AddMappingConfigurations(modelBuilder);
             base.OnModelCreating(modelBuilder);
         }

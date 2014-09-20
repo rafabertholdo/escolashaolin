@@ -12,6 +12,7 @@ namespace EscolaShaolin.Framework.Persistence
         Task SaveAsync(IEntity<BaseEntity> entity, bool isInsert);
         Task DeleteAsync(IEntity<BaseEntity> entity);
         Task<bool> LoadCopyAsync(object entity, params string[] includes);
-        Task<object> LoadAsync(object entity, params string[] includes);        
+        Task<object> LoadAsync(object entity, params string[] includes);
+        Task<IEnumerable<BaseEntity>> LoadAllAsync(Type entityType);
     }
 }

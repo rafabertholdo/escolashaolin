@@ -1,5 +1,6 @@
 ﻿using EscolaShaolin.Dominio.Academia.Entidade;
 using EscolaShaolin.Framework.Persistence.EntityFramework;
+using EscolaShaolin.Web.Migrations;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -33,7 +34,7 @@ namespace EscolaShaolin.Web.Models
 
         public override void SetInitializer()
         {
-            Database.SetInitializer<EscolaShaolinContext>(null);
+            Database.SetInitializer<EscolaShaolinContext>(new MigrateDatabaseToLatestVersion<EscolaShaolinContext,Configuration>());
         }
 
         public override void AddMappingConfigurations(object modelBuilder)

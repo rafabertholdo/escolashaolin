@@ -1,0 +1,2 @@
+﻿Enable-Migrations -startupprojectname EscolaShaolin.Katana -ContextTypeName EscolaShaolin.Infraestrutura.ContextoEscolaShaolin -Force
+add-Migration -StartUpProjectName EscolaShaolin.Katana -ConfigurationTypeName EscolaShaolin.Infraestrutura.Migrations.Configuration ChangeXX <- mude para o numero pois o EF nao faz isso mais
