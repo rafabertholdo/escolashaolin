@@ -17,7 +17,7 @@ namespace EscolaShaolin.Katana
             var config = GlobalConfiguration.Configuration;
             
             // Only serve files requested by name.
-            app.UseStaticFiles("/files");
+            app.UseStaticFiles("/views");
 
             WebApiConfig.Register(config);
             app.UseWebApi(config); 

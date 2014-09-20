@@ -1,0 +1,18 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" ng-app="myApp">
+<head>
+    <title></title>
+    <script data-main="../Scripts/app.js" src="../Scripts/require.js"></script>
+</head>
+<body ng-controller="mainController">
+    {{ greetings }}
+
+    <script type="text/javascript">
+        require(['app/main', 'angular', 'app/controllers/mainController'], function (app, angular, controller) {
+            angular.element(document).ready(function () {
+                angular.bootstrap(document, ['myApp']);
+            });
+        });
+    </script>
+</body>
+</html>
