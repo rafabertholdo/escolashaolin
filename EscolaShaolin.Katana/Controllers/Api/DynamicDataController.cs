@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using System.Linq;
+using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web;
@@ -112,7 +113,8 @@ namespace AeC.Hospitale.WebApi.Controllers
                     }
                 }
             }
-            return CreatedAtRoute("DefaultApi", new { id = content.Id }, content);
+            //return CreatedAtRoute("DefaultApi", new { controller = "DynamicData", id = content.Id }, content);
+            return StatusCode(HttpStatusCode.NoContent);
         }
 
         // POST: api/produtcts
@@ -148,7 +150,8 @@ namespace AeC.Hospitale.WebApi.Controllers
                     }
                 }
             }
-            return CreatedAtRoute("DefaultApi", new { id = content.Id }, content);
+            //return CreatedAtRoute("DefaultApi", new { controller = "DynamicData", id = content.Id }, content);
+            return Created(string.Format("api/DynamicData/{0}/{1}/{2}",module,entity,content.Id), content);
         }
 
         // DELETE: api/produtcts/5
