@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
+using Newtonsoft.Json.Serialization;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -42,6 +43,7 @@ namespace EscolaShaolin.Katana
             };
             settings.TypeNameHandling = TypeNameHandling.All;
             settings.TypeNameAssemblyFormat = System.Runtime.Serialization.Formatters.FormatterAssemblyStyle.Full;
+            settings.ContractResolver = new CamelCasePropertyNamesContractResolver();
 #if DEBUG
             settings.Formatting = Formatting.Indented;
 #endif
