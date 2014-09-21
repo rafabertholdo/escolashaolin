@@ -41,8 +41,8 @@ namespace EscolaShaolin.Katana
                     System.Diagnostics.Debugger.Break();
                 }
             };
-            settings.TypeNameHandling = TypeNameHandling.All;
-            settings.TypeNameAssemblyFormat = System.Runtime.Serialization.Formatters.FormatterAssemblyStyle.Full;
+            //settings.TypeNameHandling = TypeNameHandling.All;
+            //settings.TypeNameAssemblyFormat = System.Runtime.Serialization.Formatters.FormatterAssemblyStyle.Full;
             settings.ContractResolver = new CamelCasePropertyNamesContractResolver();
 #if DEBUG
             settings.Formatting = Formatting.Indented;

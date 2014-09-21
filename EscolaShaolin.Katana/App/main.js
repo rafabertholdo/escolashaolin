@@ -3,18 +3,17 @@
         'app/services/routeResolver'
     ];
     
-    define(dependencies, function () {
-        var app = angular.module('myApp', ['ngRoute', 'routeResolverServices']);
+    define(dependencies, function () {        
+        var app = angular.module('myApp', ['ngRoute', 'ngResource', 'routeResolverServices']);
         
         app.config(['$routeProvider', 'routeResolverProvider', '$controllerProvider',
-                 '$compileProvider', '$filterProvider', '$provide', '$httpProvider',
+                 '$compileProvider', '$filterProvider', '$provide', '$httpProvider', '$resourceProvider',
 
          function ($routeProvider, routeResolverProvider, $controllerProvider,
-                   $compileProvider, $filterProvider, $provide, $httpProvider) {
+                   $compileProvider, $filterProvider, $provide, $httpProvider, $resourceProvider) {
 
              //Change default views and controllers directory using the following:
-             //routeResolverProvider.routeConfig.setBaseDirectories('/app/views', '/app/controllers');
-             
+             //routeResolverProvider.routeConfig.setBaseDirectories('/app/views', '/app/controllers');        
              app.register =
              {
                  controller: $controllerProvider.register,
