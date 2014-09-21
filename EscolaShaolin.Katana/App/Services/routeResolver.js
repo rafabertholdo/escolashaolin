@@ -36,7 +36,7 @@ define(function () {
 
             var resolve = function (baseName, path, controllerName, secure) {
                 if (!path) path = '';
-
+                
                 var routeDef = {};
                 routeDef.templateUrl = routeConfig.getViewsDirectory() + path + baseName + '.html';
                 //routeDef.controller = baseName + 'Controller';

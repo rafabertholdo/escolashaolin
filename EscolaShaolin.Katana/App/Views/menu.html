@@ -1,0 +1,12 @@
+﻿<div class="app-launcher">
+    <div class="row-fluid" ng-repeat="app in apps" >
+        <div class="span2">
+            <div class="well">
+                <a href="{{app.link}}">
+                    <img ng-src="/content/img/{{app.image}}"/>
+                    {{app.text}}
+                </a>
+            </div>
+        </div>        
+    </div>
+</div>

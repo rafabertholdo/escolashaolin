@@ -33,13 +33,14 @@
                  //The controllers for orders live in controllers/orders and the views are in views/orders
                  //The second parameter allows for putting related controllers/views into subfolders to better organize large projects
                  //Thanks to Ton Yeung for the idea and contribution
+                 .when('/main', route.resolve('menu', '', 'menu'))
                  .when('/alunos', route.resolve('lista', 'aluno/', 'aluno'))
                  //.when('/customerorders/:customerId', route.resolve('CustomerOrders', 'customers/'))
                  //.when('/customeredit/:customerId', route.resolve('CustomerEdit', 'customers/', true))
                  //.when('/orders', route.resolve('Orders', 'orders/'))
                  //.when('/about', route.resolve('About'))
                  //.when('/login/:redirect*?', route.resolve('Login'))
-                 .otherwise({ redirectTo: '/alunos' });
+                 .otherwise({ redirectTo: '/main' });
 
          }]);
         return app;
