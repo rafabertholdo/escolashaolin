@@ -9,6 +9,9 @@ namespace EscolaShaolin.Katana
 {
     public class WebApiApplication : System.Web.HttpApplication
     {
-        
+        void Application_Start(object sender, EventArgs e)
+        {
+            GlobalConfiguration.Configuration.EnsureInitialized(); 
+        }
     }
 }

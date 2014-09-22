@@ -1,6 +1,6 @@
 ﻿<div class="container">
     <div class="row">
-        <div class="span2"><a href="#/novoAluno" class="btn btn-primary">Novo</a></div>
+        <div class="span2"><a href="#/alunos/new" class="btn btn-primary">Novo</a></div>
         
     </div>
 
@@ -12,12 +12,15 @@
             <table class="table table-bordered table-hover">
                 <thead>
                     <tr>
+                        <th>&nbsp;</th>
                         <th>Nome</th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr ng-repeat="aluno in alunos">
-                        <td>{{aluno.nome}}</td>
+                <tbody>                    
+                    <tr ng-repeat="entity in entities">
+                        <td><a class="btn btn-primary" href="#/alunos/{{entity.id}}">View</a>
+                            <a class="btn btn-danger" ng-click="delete(entity)">Delete</a></td>
+                        <td>{{entity.nome}}</td>
                     </tr>
                 </tbody>
             </table>

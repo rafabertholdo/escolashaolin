@@ -44,7 +44,7 @@ define(function () {
                 routeDef.secure = (secure) ? secure : false;
                 routeDef.resolve = {
                     load: ['$q', '$rootScope', function ($q, $rootScope) {
-                        var dependencies = [routeConfig.getControllersDirectory() + controllerName + 'Controller.js'];
+                        var dependencies = [routeConfig.getControllersDirectory() + path + controllerName + 'Controller.js'];
                         return resolveDependencies($q, $rootScope, dependencies);
                     }]
                 };

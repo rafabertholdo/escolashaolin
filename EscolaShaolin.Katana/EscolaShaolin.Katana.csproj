@@ -100,8 +100,17 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="alunos.json" />
+    <Content Include="App\Controllers\Aluno\alunoDetailsController.js" />
     <Content Include="App\Controllers\menuController.js" />
-    <Content Include="App\Views\Aluno\lista.html" />
+    <Content Include="App\Controllers\Aluno\alunoListController.js" />
+    <Content Include="App\Services\alunoMockApiService.js" />
+    <Content Include="App\Services\alunoApiService.js" />
+    <Content Include="App\Views\Aluno\edit.html" />
+    <Content Include="App\Views\Aluno\list.html" />
+    <Content Include="App\Views\Aluno\new.html" />
+    <Content Include="App\Views\Aluno\details.html" />
+    <Content Include="App\Views\Aluno\_form.html" />
     <Content Include="App\Views\menu.html" />
     <Content Include="Content\css\bootstrap-theme.css" />
     <Content Include="Content\css\bootstrap-theme.min.css" />
@@ -112,7 +121,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="index.html" />
     <Content Include="Scripts\app.js" />
-    <Content Include="App\Controllers\alunoController.js" />
+    <Content Include="App\Controllers\Aluno\alunoNewController.js" />
     <Content Include="App\main.js" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\angular-animate.js" />

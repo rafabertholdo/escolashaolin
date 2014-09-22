@@ -11,7 +11,7 @@
 
          function ($routeProvider, routeResolverProvider, $controllerProvider,
                    $compileProvider, $filterProvider, $provide, $httpProvider, $resourceProvider) {
-
+                          
              //Change default views and controllers directory using the following:
              //routeResolverProvider.routeConfig.setBaseDirectories('/app/views', '/app/controllers');        
              app.register =
@@ -34,7 +34,9 @@
                  //The second parameter allows for putting related controllers/views into subfolders to better organize large projects
                  //Thanks to Ton Yeung for the idea and contribution
                  .when('/main', route.resolve('menu', '', 'menu'))
-                 .when('/alunos', route.resolve('lista', 'aluno/', 'aluno'))
+                 .when('/alunos', route.resolve('list', 'aluno/', 'alunoList'))
+                 .when('/alunos/new', route.resolve('new', 'aluno/', 'alunoNew'))
+                 .when('/alunos/:id', route.resolve('details', 'aluno/', 'alunoDetails'))
                  //.when('/customerorders/:customerId', route.resolve('CustomerOrders', 'customers/'))
                  //.when('/customeredit/:customerId', route.resolve('CustomerEdit', 'customers/', true))
                  //.when('/orders', route.resolve('Orders', 'orders/'))

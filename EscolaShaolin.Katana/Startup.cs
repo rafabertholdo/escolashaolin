@@ -14,7 +14,7 @@ namespace EscolaShaolin.Katana
     {
         public void Configuration(IAppBuilder app)
         {
-            var config = GlobalConfiguration.Configuration;
+            var config = new HttpConfiguration();
             
             // Only serve files requested by name.
             //app.UseStaticFiles("/app");

@@ -1,4 +1,5 @@
-﻿using EscolaShaolin.Framework.Persistence;
+﻿using EscolaShaolin.Dominio.Academia.Entidade;
+using EscolaShaolin.Framework.Persistence;
 using EscolaShaolin.Framework.Persistence.EntityFramework;
 using EscolaShaolin.Infraestrutura;
 using System;
@@ -23,7 +24,7 @@ namespace AeC.Hospitale.WebApi.Controllers
         public DynamicDataController()
         {
 
-        }        
+        }
 
         public Type GetContextType(string module)
         {
@@ -55,6 +56,16 @@ namespace AeC.Hospitale.WebApi.Controllers
                 return await repository.LoadAllAsync(entityType);
             }
             else return null;
+            
+            //Mock
+            //return Task.Run(() =>
+            //{
+            //    return new[] {
+            //        new Aluno {Id = Guid.NewGuid(),
+            //        Nome = "rafael"},                    
+            //    };
+            //}).Result;
+
         }
 
         [ResponseType(typeof(BaseEntity))]
@@ -78,12 +89,19 @@ namespace AeC.Hospitale.WebApi.Controllers
             }
 
             return Ok(result);
+
+            //Mock
+            //return Ok(new Aluno
+            //{
+            //    Id = id,
+            //    Nome = "rafael"
+            //});
         }
 
         // PUT: api/produtcts/5
         [ResponseType(typeof(BaseEntity))]
-        [Route("api/DynamicData/{module}/{entity}")]
-        public async Task<IHttpActionResult> Put([ModelBinder(typeof(DynamicModelBinder))]BaseEntity content, string module, string entity)
+        [Route("api/DynamicData/{module}/{entity}/{id}")]
+        public async Task<IHttpActionResult> Put([ModelBinder(typeof(DynamicModelBinder))]BaseEntity content, string module, string entity, string id)
         {
             if (!ModelState.IsValid)
             {
@@ -113,8 +131,10 @@ namespace AeC.Hospitale.WebApi.Controllers
                     }
                 }
             }
-            //return CreatedAtRoute("DefaultApi", new { controller = "DynamicData", id = content.Id }, content);
-            return StatusCode(HttpStatusCode.NoContent);
+            return CreatedAtRoute("DefaultApi", new { controller = "DynamicData", id = content.Id }, content);
+            
+            //Mock
+            //return StatusCode(HttpStatusCode.NoContent);
         }
 
         // POST: api/produtcts
@@ -151,7 +171,7 @@ namespace AeC.Hospitale.WebApi.Controllers
                 }
             }
             //return CreatedAtRoute("DefaultApi", new { controller = "DynamicData", id = content.Id }, content);
-            return Created(string.Format("api/DynamicData/{0}/{1}/{2}",module,entity,content.Id), content);
+            return Created(string.Format("api/DynamicData/{0}/{1}/{2}", module, entity, content.Id), content);
         }
 
         // DELETE: api/produtcts/5
