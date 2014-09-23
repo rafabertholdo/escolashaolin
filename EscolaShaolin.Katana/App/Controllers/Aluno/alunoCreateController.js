@@ -4,7 +4,9 @@
             $scope.entity = new alunoApiService();
 
             $scope.save = function () {
-                $scope.entity.$save();
+                $scope.entity.$save(function () {
+                    $location.path('/alunos');
+                });                
             };
 
             // callback for ng-click 'cancel':
@@ -12,7 +14,7 @@
                 $location.path('/alunos');
             };
         };
-        app.register.controller('alunoNewController', ['$scope', '$resource', 'alunoApiService', '$location', controller]);
+        app.register.controller('alunoCreateController', ['$scope', '$resource', 'alunoApiService', '$location', controller]);
     });
 }());
 

@@ -13,9 +13,15 @@
                 $location.path('/alunos');
             };
 
+            $scope.delete = function () {
+                $scope.entity.$delete(function () {
+                    $location.path('/alunos');
+                });
+            };
+
             $scope.entity = alunoApiService.get({ id: $routeParams.id });
         };
-        app.register.controller('alunoDetailsController', ['$scope', '$resource', 'alunoApiService', '$routeParams', '$location', controller]);
+        app.register.controller('alunoEditController', ['$scope', '$resource', 'alunoApiService', '$routeParams', '$location', controller]);
     });
 }());
 

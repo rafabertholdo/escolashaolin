@@ -1,6 +1,6 @@
 ﻿<div class="container">
     <div class="row">
-        <div class="span2"><a href="#/alunos/new" class="btn btn-primary">Novo</a></div>
+        <div class="span2"><a href="#/alunos/new" class="btn btn-primary fa fa-file-o" title="Novo"></a></div>
         
     </div>
 
@@ -18,8 +18,8 @@
                 </thead>
                 <tbody>                    
                     <tr ng-repeat="entity in entities">
-                        <td><a class="btn btn-primary" href="#/alunos/{{entity.id}}">View</a>
-                            <a class="btn btn-danger" ng-click="delete(entity)">Delete</a></td>
+                        <td><a class="btn btn-primary fa fa-edit" ng-href="#/alunos/{{entity.id}}" title="Editar"></a>
+                            <a class="btn btn-danger fa fa-trash-o"  ng-click="delete(entity)" title="Apagar"></a></td>
                         <td>{{entity.nome}}</td>
                     </tr>
                 </tbody>

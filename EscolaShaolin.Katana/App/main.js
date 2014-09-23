@@ -35,8 +35,8 @@
                  //Thanks to Ton Yeung for the idea and contribution
                  .when('/main', route.resolve('menu', '', 'menu'))
                  .when('/alunos', route.resolve('list', 'aluno/', 'alunoList'))
-                 .when('/alunos/new', route.resolve('new', 'aluno/', 'alunoNew'))
-                 .when('/alunos/:id', route.resolve('details', 'aluno/', 'alunoDetails'))
+                 .when('/alunos/new', route.resolve('detail', 'aluno/', 'alunoCreate'))
+                 .when('/alunos/:id', route.resolve('detail', 'aluno/', 'alunoEdit'))
                  //.when('/customerorders/:customerId', route.resolve('CustomerOrders', 'customers/'))
                  //.when('/customeredit/:customerId', route.resolve('CustomerEdit', 'customers/', true))
                  //.when('/orders', route.resolve('Orders', 'orders/'))
