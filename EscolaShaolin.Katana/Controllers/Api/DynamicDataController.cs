@@ -115,7 +115,7 @@ namespace AeC.Hospitale.WebApi.Controllers
             {
                 try
                 {
-                    await repository.SaveAsync(content, false);
+                    await repository.SaveCopyAsync(content);
                 }
                 catch (DbUpdateException)
                 {
@@ -190,7 +190,7 @@ namespace AeC.Hospitale.WebApi.Controllers
                 baseEntity.Id = id;
                 result = await repository.LoadAsync(baseEntity);
 
-                if (result == null)
+                if (result != null)
                 {
                     await repository.DeleteAsync((BaseEntity)result);
                 }

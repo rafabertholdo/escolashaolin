@@ -4,6 +4,7 @@
             $scope.entity = new alunoApiService();
 
             $scope.save = function () {
+                debugger;
                 $scope.entity.$save(function () {
                     $location.path('/alunos');
                 });                

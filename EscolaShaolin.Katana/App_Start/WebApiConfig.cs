@@ -13,7 +13,8 @@ namespace EscolaShaolin.Katana
         public static void Register(HttpConfiguration config)
         {
             // Web API configuration and services
-            ConfigureJsonSettings(config.Formatters.JsonFormatter.SerializerSettings);                        
+            ConfigureJsonSettings(config.Formatters.JsonFormatter.SerializerSettings);
+            ConfigureJsonSettings(GlobalConfiguration.Configuration.Formatters.JsonFormatter.SerializerSettings);
 
             // Web API routes
             config.MapHttpAttributeRoutes();
@@ -32,7 +33,7 @@ namespace EscolaShaolin.Katana
             settings.Converters.Add(
                 new StringEnumConverter { CamelCaseText = false });
             settings.Converters.Add(
-                new IsoDateTimeConverter { DateTimeFormat = "dd/MM/yyyy" });
+                new IsoDateTimeConverter { DateTimeFormat = "dd/MM/yyyy hh:mm:ss" });
             settings.Error += (sender, args) =>
             {                
                 args.ErrorContext.Handled = true;

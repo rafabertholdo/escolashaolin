@@ -14,7 +14,7 @@
             };
 
             $scope.delete = function () {
-                $scope.entity.$delete(function () {
+                $scope.entity.$delete(function () {                    
                     $location.path('/alunos');
                 });
             };

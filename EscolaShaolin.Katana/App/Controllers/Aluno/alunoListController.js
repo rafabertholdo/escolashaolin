@@ -6,10 +6,10 @@
                 $scope.entities = data;
             });                        
 
-            $scope.delete = function (entity) {
-                entity.$delete(function () {
+            $scope.delete = function (entity) {                
+                entity.$delete(function () {                    
                     alunoApiService.query(function (data) {
-                        $scope.entites = data;
+                        $scope.entities = data;
                     });
                 });
             };
