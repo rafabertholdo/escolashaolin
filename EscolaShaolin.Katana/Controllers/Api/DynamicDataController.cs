@@ -2,14 +2,17 @@
 using EscolaShaolin.Framework.Persistence;
 using EscolaShaolin.Framework.Persistence.EntityFramework;
 using EscolaShaolin.Infraestrutura;
+using EscolaShaolin.Katana;
 using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
+using System.Dynamic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Reflection;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Http;
@@ -17,9 +20,9 @@ using System.Web.Http.Description;
 using System.Web.Http.ModelBinding;
 using System.Web.Routing;
 
-namespace AeC.Hospitale.WebApi.Controllers
+namespace EscolaShaolin.Katana.Controllers.Api
 {
-    public class DynamicDataController : ApiController
+    public class DynamicDataController : ApiController, IDynamicDataController
     {
         public DynamicDataController()
         {
@@ -87,8 +90,29 @@ namespace AeC.Hospitale.WebApi.Controllers
             {
                 return NotFound();
             }
+               
+            var enums = result.GetType().GetProperties().Where(e=>e.PropertyType.IsEnum);
 
-            return Ok(result);
+            if (enums.Any())
+            {
+                var xpando = new ExpandoObject() as IDictionary<string, Object>;
+
+                foreach(var type in result.GetType().GetProperties())                
+                    xpando.Add(type.Name, type.GetValue(result));
+                
+                foreach (var enumProp in enums)
+                {
+                    var dict = new Dictionary<int, string>();
+                    foreach (Enum enumValue in Enum.GetValues(enumProp.PropertyType))
+                    {
+                        dict.Add(Convert.ToInt32(enumValue), enumValue.ToString());
+                    }
+                    xpando.Add(new KeyValuePair<string, object>(enumProp.Name + "Source", dict));                        
+                }
+                return Ok((dynamic)xpando);
+            }           
+            else
+                return Ok(result);
 
             //Mock
             //return Ok(new Aluno
@@ -96,7 +120,7 @@ namespace AeC.Hospitale.WebApi.Controllers
             //    Id = id,
             //    Nome = "rafael"
             //});
-        }
+        }        
 
         // PUT: api/produtcts/5
         [ResponseType(typeof(BaseEntity))]

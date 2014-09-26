@@ -8,7 +8,7 @@ using Newtonsoft.Json;
 using System.Web.Http;
 using System.ComponentModel.DataAnnotations;
 
-namespace AeC.Hospitale.WebApi
+namespace EscolaShaolin.Katana
 {
     public class DynamicModelBinder : IModelBinder
     {

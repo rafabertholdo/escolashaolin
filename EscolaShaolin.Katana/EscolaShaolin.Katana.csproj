@@ -916,6 +916,7 @@
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\Api\DynamicDataController.cs" />
+    <Compile Include="Controllers\Api\IDynamicDataController.cs" />
     <Compile Include="DynamicModelBinder.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
