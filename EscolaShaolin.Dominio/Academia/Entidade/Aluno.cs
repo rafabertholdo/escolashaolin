@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -62,32 +63,47 @@ namespace EscolaShaolin.Dominio.Academia.Entidade
 
     public enum StatusAluno
     {
+        [Description("Ativo")]
         Ativo = 1,
+        [Description("Desistente")]
         Desistente = 2,
+        [Description("Bloqueado")]
         Bloqueado = 3,
+        [Description("Ex Aluno")]
         ExAluno = 4,
+        [Description("Outros")]
         Outros = 5
     }
 
     public enum Sexo
     {
+        [Description("Masculino")]
         Masculino = 'M',
-        Feminio = 'F'
+        [Description("Feminino")]
+        Feminino = 'F'
     }
 
     public enum EstadoCivil
     {
+        [Description("Solteiro")]
         Solteiro = 1,
+        [Description("Casado")]
         Casado = 2,
+        [Description("Separado")]
         Separado = 3,
+        [Description("Divorciado")]
         Divorciado = 4
     }
 
     public enum ComoConheceuEscola
     {
+        [Description("Indicacão")]
         Indicacao = 1,
+        [Description("Jornal")]
         Jornal = 2,
+        [Description("Internet")]
         Internet = 3,
+        [Description("Outros")]
         Outros 
     }
 }

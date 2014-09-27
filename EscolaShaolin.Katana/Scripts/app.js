@@ -7,17 +7,14 @@
     requirejs.config({
         baseUrl: '../scripts',
         paths: {
-            app: '../app'
+            app: '../app',
+            'jquery': 'jquery-2.1.1.min'
         },
-        //shim: {
-        //    'angular': {
-        //        exports: "angular"
-        //    },
-        //    'angular-route': {
-        //        deps: ['angular'],
-        //        exports: "$routeProvider"
-        //    }
-        //}
+        shim: {
+            'jquery-mask': {
+                deps: ['jquery'],
+            }            
+        }
 
     });
 

@@ -1,5 +1,5 @@
 ﻿(function () {    
-    define(['app/main','app/services/alunoApiService'], function (app) {        
+    define(['app/main','app/services/alunoApiService','jquery-mask'], function (app) {        
         var controller = function ($scope, $resource, alunoApiService, $routeParams, $location) {
             // callback for ng-click 'updateUser':
             $scope.save = function () {                
@@ -19,7 +19,14 @@
                 });
             };
 
-            $scope.entity = alunoApiService.get({ id: $routeParams.id });
+            $scope.entity = alunoApiService.get({ id: $routeParams.id }, function () {
+                debugger;
+            });
+            
+            $(document).ready(function () {
+                $('.placeholder').mask("00/00/0000", { placeholder: "__/__/____" });
+            });            
+
         };
         app.register.controller('alunoEditController', ['$scope', '$resource', 'alunoApiService', '$routeParams', '$location', controller]);
     });

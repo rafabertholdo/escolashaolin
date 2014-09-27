@@ -3,6 +3,7 @@ using EscolaShaolin.Framework.Persistence;
 using EscolaShaolin.Framework.Persistence.EntityFramework;
 using EscolaShaolin.Infraestrutura;
 using EscolaShaolin.Katana;
+using EscolaShaolin.Framework.Util;
 using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
@@ -90,8 +91,8 @@ namespace EscolaShaolin.Katana.Controllers.Api
             {
                 return NotFound();
             }
-               
-            var enums = result.GetType().GetProperties().Where(e=>e.PropertyType.IsEnum);
+
+            var enums = result.GetType().GetProperties().Where(e => e.PropertyType.IsEnum || (e.PropertyType.IsGenericType && e.PropertyType.GetGenericTypeDefinition() == typeof(Nullable<>) && typeof(Enum).IsAssignableFrom(e.PropertyType.GetGenericArguments()[0])));
 
             if (enums.Any())
             {
@@ -102,10 +103,10 @@ namespace EscolaShaolin.Katana.Controllers.Api
                 
                 foreach (var enumProp in enums)
                 {
-                    var dict = new Dictionary<int, string>();
-                    foreach (Enum enumValue in Enum.GetValues(enumProp.PropertyType))
+                    var dict = new List<KeyValuePair<int, string>>();
+                    foreach (Enum enumValue in Enum.GetValues(enumProp.PropertyType.IsGenericType ? enumProp.PropertyType.GetGenericArguments()[0] : enumProp.PropertyType))
                     {
-                        dict.Add(Convert.ToInt32(enumValue), enumValue.ToString());
+                        dict.Add(new KeyValuePair<int,string>(Convert.ToInt32(enumValue), enumValue.GetDescription()));
                     }
                     xpando.Add(new KeyValuePair<string, object>(enumProp.Name + "Source", dict));                        
                 }
