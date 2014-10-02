@@ -1,17 +1,19 @@
 ﻿(function () {
-    var dependencies = [        
-        'app/services/routeResolver'
+    var dependencies = [
+        'app/services/routeResolver',
+        'moment',        
+        'jquery-mask'
     ];
-    
-    define(dependencies, function () {        
+
+    define(dependencies, function () {
         var app = angular.module('myApp', ['ngRoute', 'ngResource', 'routeResolverServices']);
-        
+
         app.config(['$routeProvider', 'routeResolverProvider', '$controllerProvider',
                  '$compileProvider', '$filterProvider', '$provide', '$httpProvider', '$resourceProvider',
 
          function ($routeProvider, routeResolverProvider, $controllerProvider,
                    $compileProvider, $filterProvider, $provide, $httpProvider, $resourceProvider) {
-                          
+
              //Change default views and controllers directory using the following:
              //routeResolverProvider.routeConfig.setBaseDirectories('/app/views', '/app/controllers');        
              app.register =
@@ -35,7 +37,7 @@
                  //Thanks to Ton Yeung for the idea and contribution
                  .when('/main', route.resolve('menu', '', 'menu'))
                  .when('/alunos', route.resolve('list', 'aluno/', 'alunoList'))
-                 .when('/alunos/new', route.resolve('detail', 'aluno/', 'alunoCreate'))
+                 .when('/alunos/new', route.resolve('detail', 'aluno/', 'alunoEdit'))
                  .when('/alunos/:id', route.resolve('detail', 'aluno/', 'alunoEdit'))
                  //.when('/customerorders/:customerId', route.resolve('CustomerOrders', 'customers/'))
                  //.when('/customeredit/:customerId', route.resolve('CustomerEdit', 'customers/', true))
@@ -45,6 +47,38 @@
                  .otherwise({ redirectTo: '/main' });
 
          }]);
+
+        app.directive('date', function () {
+            return {
+                require: 'ngModel',
+                link: function (scope, element, attrs, ngModelController) {                    
+                    $(element[0]).mask("00/00/0000", { placeholder: "__/__/____" });
+                    ngModelController.$parsers.push(function (data) {
+                        //convert data from view format to model format                        
+                        var pattern = 'DD/MM/YYYY HH:mm:SS';
+                        var output = "-";
+                        if (data !== null && data !== undefined && data.length > 0) {
+                            return moment(data, 'DD/MM/YYYY').format(pattern);
+                        }
+                    });
+
+                    ngModelController.$formatters.push(function (data) {
+                        //convert data from model format to view format                        
+                        if (data != null && data.indexOf('01/01/0001') >= 0)
+                            return null;
+                        var pattern = 'DD/MM/YYYY';
+                        var output = "-";
+                        if (data !== null && data !== undefined && data.length > 0) {
+                            return moment(data, 'DD/MM/YYYY HH:mm:SS').format(pattern);
+                        }
+
+                        return data; //converted
+                    });
+                }
+            }
+        });
+
+
         return app;
     });
 }());

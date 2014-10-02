@@ -120,7 +120,6 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="index.html" />
     <Content Include="Scripts\app.js" />
-    <Content Include="App\Controllers\Aluno\alunoCreateController.js" />
     <Content Include="App\main.js" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\angular-animate.js" />
@@ -911,6 +910,10 @@
     <Content Include="Scripts\jquery-2.1.1.min.js" />
     <Content Include="Scripts\jquery-mask.js" />
     <Content Include="Scripts\jquery-mask.min.js" />
+    <Content Include="Scripts\moment-with-locales.js" />
+    <Content Include="Scripts\moment-with-locales.min.js" />
+    <Content Include="Scripts\moment.js" />
+    <Content Include="Scripts\moment.min.js" />
     <Content Include="Scripts\r.js" />
     <Content Include="Scripts\require.js" />
     <Content Include="Web.config" />

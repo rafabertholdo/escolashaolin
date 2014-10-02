@@ -13,7 +13,7 @@
         shim: {
             'jquery-mask': {
                 deps: ['jquery'],
-            }            
+            }
         }
 
     });

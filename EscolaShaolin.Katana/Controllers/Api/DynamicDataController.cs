@@ -69,14 +69,44 @@ namespace EscolaShaolin.Katana.Controllers.Api
             //        Nome = "rafael"},                    
             //    };
             //}).Result;
+        }
 
+        private object AddEnumSources(object result)
+        {
+            var enums = result.GetType().GetProperties().Where(e => e.PropertyType.IsEnum || (e.PropertyType.IsGenericType && e.PropertyType.GetGenericTypeDefinition() == typeof(Nullable<>) && typeof(Enum).IsAssignableFrom(e.PropertyType.GetGenericArguments()[0])));
+
+            if (enums.Any())
+            {
+                var xpando = new ExpandoObject() as IDictionary<string, Object>;
+
+                foreach (var type in result.GetType().GetProperties())
+                    xpando.Add(type.Name, type.GetValue(result));
+
+                foreach (var enumProp in enums)
+                {
+                    var dict = new List<KeyValuePair<int, string>>();
+                    foreach (Enum enumValue in Enum.GetValues(enumProp.PropertyType.IsGenericType ? enumProp.PropertyType.GetGenericArguments()[0] : enumProp.PropertyType))
+                    {
+                        dict.Add(new KeyValuePair<int, string>(Convert.ToInt32(enumValue), enumValue.GetDescription()));
+                    }
+                    xpando.Add(new KeyValuePair<string, object>(enumProp.Name + "Source", dict));
+                }
+                return (dynamic)xpando;
+            }
+            else
+                return result;
         }
 
         [ResponseType(typeof(BaseEntity))]
         [Route("api/DynamicData/{module}/{entity}/{id}")]
         public async Task<IHttpActionResult> Get(string module, string entity, Guid id)
-        {
+        {            
             var entityType = DynamicModelBinder.GetModelType(module, entity);
+            if (id == Guid.Empty)
+            {
+                return Ok(AddEnumSources(Activator.CreateInstance(entityType)));
+            }
+
             var repository = GetRepository(module, entityType);
             BaseEntity baseEntity = null;
             object result = null;
@@ -92,28 +122,7 @@ namespace EscolaShaolin.Katana.Controllers.Api
                 return NotFound();
             }
 
-            var enums = result.GetType().GetProperties().Where(e => e.PropertyType.IsEnum || (e.PropertyType.IsGenericType && e.PropertyType.GetGenericTypeDefinition() == typeof(Nullable<>) && typeof(Enum).IsAssignableFrom(e.PropertyType.GetGenericArguments()[0])));
-
-            if (enums.Any())
-            {
-                var xpando = new ExpandoObject() as IDictionary<string, Object>;
-
-                foreach(var type in result.GetType().GetProperties())                
-                    xpando.Add(type.Name, type.GetValue(result));
-                
-                foreach (var enumProp in enums)
-                {
-                    var dict = new List<KeyValuePair<int, string>>();
-                    foreach (Enum enumValue in Enum.GetValues(enumProp.PropertyType.IsGenericType ? enumProp.PropertyType.GetGenericArguments()[0] : enumProp.PropertyType))
-                    {
-                        dict.Add(new KeyValuePair<int,string>(Convert.ToInt32(enumValue), enumValue.GetDescription()));
-                    }
-                    xpando.Add(new KeyValuePair<string, object>(enumProp.Name + "Source", dict));                        
-                }
-                return Ok((dynamic)xpando);
-            }           
-            else
-                return Ok(result);
+            return Ok(AddEnumSources(result));
 
             //Mock
             //return Ok(new Aluno

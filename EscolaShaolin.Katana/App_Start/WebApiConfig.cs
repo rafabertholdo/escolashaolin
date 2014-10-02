@@ -33,7 +33,7 @@ namespace EscolaShaolin.Katana
             settings.Converters.Add(
                 new StringEnumConverter { CamelCaseText = false });
             settings.Converters.Add(
-                new IsoDateTimeConverter { DateTimeFormat = "dd/MM/yyyy hh:mm:ss" });
+                new IsoDateTimeConverter { DateTimeFormat = "dd/MM/yyyy hh:mm:ss" });            
             settings.Error += (sender, args) =>
             {                
                 args.ErrorContext.Handled = true;
