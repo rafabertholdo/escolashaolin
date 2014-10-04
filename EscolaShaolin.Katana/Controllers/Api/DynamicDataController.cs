@@ -84,10 +84,10 @@ namespace EscolaShaolin.Katana.Controllers.Api
 
                 foreach (var enumProp in enums)
                 {
-                    var dict = new List<KeyValuePair<int, string>>();
+                    var dict = new List<KeyValuePair<string, string>>();
                     foreach (Enum enumValue in Enum.GetValues(enumProp.PropertyType.IsGenericType ? enumProp.PropertyType.GetGenericArguments()[0] : enumProp.PropertyType))
                     {
-                        dict.Add(new KeyValuePair<int, string>(Convert.ToInt32(enumValue), enumValue.GetDescription()));
+                        dict.Add(new KeyValuePair<string, string>(enumValue.ToString(), enumValue.GetDescription()));
                     }
                     xpando.Add(new KeyValuePair<string, object>(enumProp.Name + "Source", dict));
                 }
