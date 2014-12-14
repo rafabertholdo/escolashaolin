@@ -26,8 +26,7 @@
              };
 
              //Define routes - controllers will be loaded dynamically
-             var route = routeResolverProvider.route;
-
+             var route = routeResolverProvider.route;             
              $routeProvider
                  //route.resolve() now accepts the convention to use (name of controller & view) as well as the 
                  //path where the controller or view lives in the controllers or views folder if it's in a sub folder. 
@@ -35,10 +34,11 @@
                  //The controllers for orders live in controllers/orders and the views are in views/orders
                  //The second parameter allows for putting related controllers/views into subfolders to better organize large projects
                  //Thanks to Ton Yeung for the idea and contribution
-                 .when('/main', route.resolve('menu', '', 'menu'))
-                 .when('/alunos', route.resolve('list', 'aluno/', 'alunoList'))
-                 .when('/alunos/new', route.resolve('detail', 'aluno/', 'alunoEdit'))
-                 .when('/alunos/:id', route.resolve('detail', 'aluno/', 'alunoEdit'))
+                 .when('/:controller/:id?', route.resolve())
+                 ////.when('/main', route.resolve('menu', '', 'menu'))
+                 ////.when('/alunos', route.resolve('list', 'aluno/', 'alunoList'))
+                 ////.when('/alunos/new', route.resolve('detail', 'aluno/', 'alunoEdit'))
+                 ////.when('/alunos/:id', route.resolve('detail', 'aluno/', 'alunoEdit'))
                  //.when('/customerorders/:customerId', route.resolve('CustomerOrders', 'customers/'))
                  //.when('/customeredit/:customerId', route.resolve('CustomerEdit', 'customers/', true))
                  //.when('/orders', route.resolve('Orders', 'orders/'))
@@ -77,7 +77,6 @@
                 }
             }
         });
-
 
         return app;
     });

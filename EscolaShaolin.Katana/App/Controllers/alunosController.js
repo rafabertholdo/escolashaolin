@@ -14,7 +14,7 @@
                 });
             };
         };
-        app.register.controller('alunoListController', ['$scope', '$resource', 'alunoApiService', '$routeParams', controller]);
+        app.register.controller('alunosController', ['$scope', '$resource', 'alunoApiService', '$routeParams', controller]);
     });
 }());
 

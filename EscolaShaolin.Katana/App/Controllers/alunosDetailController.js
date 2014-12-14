@@ -36,7 +36,7 @@
             //});            
 
         };
-        app.register.controller('alunoEditController', ['$scope', '$resource', 'alunoApiService', '$routeParams', '$location', controller]);
+        app.register.controller('alunosDetailController', ['$scope', '$resource', 'alunoApiService', '$routeParams', '$location', controller]);
     });
 }());
 

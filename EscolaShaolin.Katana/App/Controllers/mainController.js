@@ -8,6 +8,6 @@
                 link: "#/alunos"
             }];
         };
-        app.register.controller('menuController', ['$scope', '$resource', controller]);
+        app.register.controller('mainController', ['$scope', '$resource', controller]);
     });
 }());

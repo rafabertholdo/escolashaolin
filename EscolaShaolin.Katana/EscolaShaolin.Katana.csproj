@@ -101,14 +101,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="alunos.json" />
-    <Content Include="App\Controllers\Aluno\alunoEditController.js" />
-    <Content Include="App\Controllers\menuController.js" />
-    <Content Include="App\Controllers\Aluno\alunoListController.js" />
+    <Content Include="App\Controllers\alunosDetailController.js" />
+    <Content Include="App\Controllers\mainController.js" />
+    <Content Include="App\Controllers\alunosController.js" />
     <Content Include="App\Services\alunoMockApiService.js" />
     <Content Include="App\Services\alunoApiService.js" />
-    <Content Include="App\Views\Aluno\list.html" />
-    <Content Include="App\Views\Aluno\detail.html" />
-    <Content Include="App\Views\menu.html" />
+    <Content Include="App\Services\navigationController.js" />
+    <Content Include="App\Views\alunos.html" />
+    <Content Include="App\Views\alunosDetail.html" />
+    <Content Include="App\Views\main.html" />
     <Content Include="Content\css\bootstrap-theme.css" />
     <Content Include="Content\css\bootstrap-theme.min.css" />
     <Content Include="Content\css\bootstrap.css" />
