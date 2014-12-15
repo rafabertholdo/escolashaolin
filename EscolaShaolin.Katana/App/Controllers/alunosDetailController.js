@@ -1,6 +1,13 @@
 ﻿(function () {    
     define(['app/main','app/services/alunoApiService','jquery-mask'], function (app) {        
         var controller = function ($scope, $resource, alunoApiService, $routeParams, $location) {
+                        
+            $scope.state = 'edit';
+            
+            $scope.switchView = function (state) {
+                $scope.state = state;
+            };            
+
             // callback for ng-click 'updateUser':
             $scope.save = function () {
                 if ($routeParams.id) {
